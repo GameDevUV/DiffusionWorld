@@ -20,9 +20,6 @@ const fs = require('fs')
             return null;
         }
         const UploadVar = await cloudinary.uploader.upload(FilePath)
-        // sucess on upload
-        // console.log("File Uploaded Sucessfully");
-        // getting new pubilc url of uploaded file
         console.log(UploadVar);
         fs.unlinkSync(FilePath)
         const url = UploadVar.url;

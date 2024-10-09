@@ -1,8 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const date = Date.now();
-
 const DiffusionImages = new mongoose.Schema({
 
     Title : {
