@@ -8,10 +8,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+let port = process.env.PORT || 4200
+
 const conn = connectDb();
 
 app.use('/' , routes);
 
 
 
-app.listen(4200);
+
+app.listen(port)
