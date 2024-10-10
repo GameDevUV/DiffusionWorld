@@ -9,7 +9,7 @@ const getData = async (req , resp)=>{
         const Walldata = await data.find({});
         resp.send(Walldata);
     } catch (error) {
-        console.log("Hellow getData Error");
+        console.log(error);
     }
 }
 
