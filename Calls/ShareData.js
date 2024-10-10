@@ -1,16 +1,14 @@
-const mongoose = require('mongoose');
-const connectDb = require('../Connect/connectDb');
-const CT = require('../models/CT')
+const CT = require('../models/CT');
 
-const data =CT.find({})
-
-const getData = async (req , resp)=>{
-    try {
-        const Walldata = await data.find({});
-        resp.send(Walldata);
-    } catch (error) {
-        console.log(error);
-    }
-}
+const getData = async (req, resp) => {
+  try {
+    // Create a new query every time the function is called
+    const Walldata = await CT.find({});
+    resp.send(Walldata);
+  } catch (error) {
+    console.log(error);
+    resp.status(500).send("An error occurred while fetching data.");
+  }
+};
 
 module.exports = getData;
