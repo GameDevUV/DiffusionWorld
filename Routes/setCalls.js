@@ -1,4 +1,3 @@
-// routes folder
 require('dotenv').config();
 const express = require('express');
 const routes = express.Router();

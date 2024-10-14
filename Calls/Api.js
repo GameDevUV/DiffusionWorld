@@ -5,8 +5,6 @@ const CT = require('../models/CT')
 
 const uploadrt = async (req, resp) => {
     try {
-        // valuse Getting
-        const image = req.file.image;
         const imageName = req.body.name;
         const DeviceKnow = req.body.DeviceKnow;
         const WallTags = req.body.WallTags;
