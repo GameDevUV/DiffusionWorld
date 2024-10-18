@@ -10,6 +10,7 @@ const uploadrt = async (req, resp) => {
         const WallTags = req.body.WallTags;
         const WallTitle = req.body.WallTitle;
         const btags = req.body.btags;
+        const description = req.body.desc;
 
         const uploadResult = await UploadOnCloudinary(req.file.path);
         if (!uploadResult) {
@@ -20,19 +21,23 @@ const uploadrt = async (req, resp) => {
         const PublicId = uploadResult.publicId;
         const downloadUrl = await getCloudinaryFileUrl(PublicId);
         const newImage = new CT({
+            MainTag: WallTags,
+            MainTitle: WallTitle,
+            Desc: description,
             Title: imageName,
             ImageUrl: Imageurl,
             DowloadUrl: downloadUrl,
             MadeFor: DeviceKnow,
-            MainTag: WallTags,
-            MainTitle: WallTitle,
             Tags: btags,
             PublicId : PublicId
         })
         await newImage.save();
         resp.status(200).json({ message: "file uploaded sucessfully" });
+        console.log("submitted sucessfully");
+        alert("submitted sucessfully")
     } catch (error) {
         console.log("error in Cloudinary upload -->", error);
+        alert("Someting wents wrong")
     }
 }
 

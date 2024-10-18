@@ -3,6 +3,18 @@ const mongoose = require('mongoose');
 
 const DiffusionImages = new mongoose.Schema({
 
+    MainTag: {
+        type : String,
+        require : true
+    },
+    MainTitle: {
+        require:true,
+        type: String
+    },
+    Desc:{
+        require: true,
+        type: String
+    },
     Title : {
         type : String,
         require : true
@@ -23,14 +35,6 @@ const DiffusionImages = new mongoose.Schema({
     MadeFor : {
         type : String,
         require : true
-    },
-    MainTag: {
-        type : String,
-        require : true
-    },
-    MainTitle: {
-        require:true,
-        type: String
     },
     Tags: {
         require:true,
