@@ -10,13 +10,10 @@ const getData = async (req, resp) => {
     let LimitPerPage = 3;
     let skipped = (page - 1) * LimitPerPage;
 
-    let LimitHome = 400;
-    let skippedHome = (page - 1) * LimitHome;
-
 
     let Walldata;
     if (fetchAll || page === 0 || page === null) {
-      Walldata = await CT.find({}).skip(skippedHome).limit(LimitHome);
+      Walldata = await CT.find({});
 
     }else {
       Walldata = await CT.find({}).skip(skipped).limit(LimitPerPage);
