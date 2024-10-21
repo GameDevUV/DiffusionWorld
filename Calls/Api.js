@@ -34,10 +34,8 @@ const uploadrt = async (req, resp) => {
         await newImage.save();
         resp.status(200).json({ message: "file uploaded sucessfully" });
         console.log("submitted sucessfully");
-        alert("submitted sucessfully")
     } catch (error) {
         console.log("error in Cloudinary upload -->", error);
-        alert("Someting wents wrong")
     }
 }
 
